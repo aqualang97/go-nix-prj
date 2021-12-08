@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Forma</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="/my-handling-form-page" method="post">
+        <div class="form-wrapper">
+          <ul>
+            <li>
+              <label for="name" >Name:</label>
+              <input type="text" id="name" name="user_name" value='' autocomplete="off" placeholder="Your name..">
+            </li>
+            <li>
+              <label for="surname">Surname:</label>
+              <input type="email" id="surname" value='' autocomplete="off" name="user_surname"
+              placeholder="Your surname..">
+            </li>
+            <li>
+              <label for="mail">E-mail:</label>
+              <input type="email" id="mail" name="user_mail" value='' autocomplete="off" placeholder="Your E-mail..">
+            </li>
+            <li>
+              <label for="sex">Sex</label>
+              <select id="sex" name="sex"value="" autocomplete="off">
+                <option value=""></option>
+                <option value="male">Male</option >
+                <option value="female">Female</option>
+                <option value="othet">Other</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+        <div class="btn-clear-send font-25">
+          <button type="button" name="button">Clear</button>
+          <button type="button" name="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

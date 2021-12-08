@@ -1,0 +1,54 @@
+@font-face {
+    font-family: "Ubuntu"; /* Имя шрифта */
+    src: url("fonts/Ubuntu/Ubuntu-Regular.ttf"); /* Путь к файлу со шрифтом */
+   }
+
+
+.form-container{
+  background-color: pink;
+  padding: 20px 50px 20px 50px;
+  /*width: 50%;*/
+  border-radius: 8px;
+}
+.form-conteiner .font-25,
+ form,
+  option,
+   input{
+  font-family: "Ubuntu";
+  font-size: 25px;
+  font-weight: 400;
+  color: #808080;
+
+}
+
+
+.form-container .form-wrapper ul li{
+  padding: 0 100px 0 100px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+
+}
+
+.form-container .form-wrapper input,
+select{
+  width: 50%;
+  border-radius: 4px;
+}
+.form-container .btn-clear-send{
+  display: flex;
+  justify-content: center;
+
+}
+.form-container .btn-clear-send button{
+    color: #00fa9a;
+    background-color: #4CAF50; /* Green */
+    border-color: black;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
