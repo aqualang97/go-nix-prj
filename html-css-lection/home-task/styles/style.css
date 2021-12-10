@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Ubuntu"
+  src:url("../../../../first/fonts/Ubuntu/Ubuntu-Regular.ttf)first/fonts/Ubuntu/Ubuntu-Regular.ttf");
+  font-weight: 400;
+}
+
+.login-form-container{
+  background-color: #f5e7ee;
+  max-width: 1440px;
+}
+.ubuntu-25{
+  font-size: 25px;
+}
+.ubuntu-15{
+  font-size: 15px;
+}
+.login-form-container form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 250px 100px 250px;
+}
+
+.login-form-container form ul{
+  padding-left: 0px;
+  width: 100%;
+
+}
+.login-form-container form ul li{
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  color: #26938e;
+}
+
+.login-form-container form ul li input{
+  height: 30px;
+  border-radius: 8px;
+}
+
+.login-form-container button{
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 50px;
+}
+.login-form-container .return-forgot{
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+  padding-top: 50px;
+}
+.return-forgot button{
+  height: 40px;
+  width: 40%;
+}
+.return-forgot .btn-bg-return-colour{
+  background-color: green;
+}
+.return-forgot .btn-bg-forgot-colour{
+  background-color: blue;
+}
