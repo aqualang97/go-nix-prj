@@ -116,6 +116,10 @@ header{
   font-size: 25px;
 }
 
+.corinthina-15{
+  font-family: "Corinthia";
+  font-size: 15px;
+}
 
 .promo-container, .about-container{
   display: flex;
@@ -241,5 +245,61 @@ Product
   height: 50px;
   background-color: #c9ffb6;
   width: 50%;
+}
+
+/*
+---------------
+Product list
+---------------
+*/
+
+.product-list-container{
+  display: flex;
+  background-color: #FADADD;
+  flex-direction: column;
+}
+.beer-categ h1{
+  text-align: center;
+  font-family: "Corinthia";
+  font-size: 75px;
+  border-top: 1px dashed #a9a9a9;
+  border-bottom: 1px dashed #a9a9a9;
+
+}
+.product-light-list{
+  display: flex;
+}
+.product-light-elem{
+  padding: 20px 0 20px 0;
+}
+.product-light-elem .product{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.product-light-elem .product img{
+  width: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.name-price-cart{
+  display: flex;
+
+}
+.name-price-cart .name-price{
+  width: 50%;
+}
+.name-price-cart .name-price h3,.name-price-cart .name-price p{
+  margin: 0;
+}
+
+.name-price-cart .cart{
+  width: 50%;
+}
+
+.name-price-cart .cart img{
+  width: 40%;
 
 }
