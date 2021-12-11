@@ -73,7 +73,6 @@ Login
   background-color: blue;
 }
 
-
 /*
 ---------------
 Main
@@ -207,4 +206,40 @@ footer{
   width: 100%;
   justify-content: end;
   padding-right: 25px;
+}
+
+/*
+---------------
+Product
+---------------
+*/
+.product-container {
+  display: flex;
+  flex-direction: row;
+  padding: 50px 20px;
+  background-color: #FADADD;
+}
+.product-container .product-img-container{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.product-container .product-img-container img{
+  width: 50%;
+}
+.product-descript-container {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.product-descript-container button{
+  font-family: "Corinthia";
+  font-size: 35px;
+  color: brown;
+  border-radius: 8px;
+  height: 50px;
+  background-color: #c9ffb6;
+  width: 50%;
+
 }
