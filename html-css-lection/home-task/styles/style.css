@@ -1,9 +1,18 @@
 @font-face {
-  font-family: "Ubuntu"
+  font-family: "Ubuntu";
   src:url("../../../../first/fonts/Ubuntu/Ubuntu-Regular.ttf)first/fonts/Ubuntu/Ubuntu-Regular.ttf");
   font-weight: 400;
 }
-
+@font-face {
+  font-family: "Corinthia";
+  src: url("../fonts/Corinthia-Regular.ttf");
+  font-weight: 400;
+}
+/*
+---------------
+Login
+---------------
+*/
 .login-form-container{
   background-color: #f5e7ee;
   max-width: 1440px;
@@ -62,4 +71,140 @@
 }
 .return-forgot .btn-bg-forgot-colour{
   background-color: blue;
+}
+
+
+/*
+---------------
+Main
+---------------
+*/
+
+header{
+  display: flex;
+  justify-content: space-between;
+  background-color: #c9ffb6;
+  padding: 15px 5px;
+}
+
+.logo-about-prod-container{
+  display: flex;
+  width: 30%;
+  justify-content: inherit;
+}
+
+.logo-about-prod-container p{
+  margin: 0;
+}
+
+.login-cart-container{
+  display: flex;
+  width: 30%;
+  justify-content: inherit;
+}
+
+.login-cart-container p{
+  margin: 0;
+}
+
+.corinthina-30{
+  font-family: "Corinthia";
+  font-size: 30px;
+}
+
+.corinthina-25{
+  font-family: "Corinthia";
+  font-size: 25px;
+}
+
+
+.promo-container, .about-container{
+  display: flex;
+  width: 100%;
+  background-color: #FADADD;
+  margin: 0;
+  padding-top: 50px;
+}
+.promo-container .promo-txt, .about-container .about-txt{
+  width: 100%;
+  padding: 50px 0 0 25px;
+
+}
+.promo-container .promo-img img, .about-container .about-img img{
+  width: 100%;
+  position: static;
+  margin: 0;
+}
+
+.about-txt h3, .about-txt p{
+  padding: 0 50px 0 50px;
+}
+
+.reverce{
+  flex-direction: row-reverse;
+}
+
+.learn-more-container{
+  display: flex;
+  flex-direction: column;
+  padding: 30px 300px;
+  background-color: #FADADD;
+
+}
+.learn-more{
+  justify-content: center;
+  text-align: center;
+}
+.different-beers-btn {
+  display: flex;
+  justify-content: space-between;
+}
+.different-beers-btn button{
+  font-family: "Corinthia";
+  font-size: 25px;
+  color: white;
+  border-radius: 8px;
+  height: 50px;
+  width: 15%;
+}
+
+.light{
+  background-color: #f6c101;
+}
+
+.dark{
+  background-color: #290e05;
+}
+
+.unfiltered{
+  background-color: #f28ec1;
+}
+
+.craft{
+  background-color: #b84b3b;
+}
+
+footer{
+  background-color: #c9ffb6;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  padding-top: 25px;
+}
+.sotial-networks{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+}
+.networks-img{
+  display: flex;
+  justify-content: space-evenly;
+}
+.copyrights{
+  display: flex;
+  align-items: self-end;
+  width: 100%;
+  justify-content: end;
+  padding-right: 25px;
 }
