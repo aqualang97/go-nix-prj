@@ -1,8 +1,4 @@
-@font-face {
-  font-family: "Ubuntu";
-  src:url("../../../../first/fonts/Ubuntu/Ubuntu-Regular.ttf)first/fonts/Ubuntu/Ubuntu-Regular.ttf");
-  font-weight: 400;
-}
+
 @font-face {
   font-family: "Corinthia";
   src: url("../fonts/Corinthia-Regular.ttf");
@@ -13,16 +9,21 @@
 Login
 ---------------
 */
-.login-form-container{
-  background-color: #f5e7ee;
+header, main, footer{
   max-width: 1440px;
 }
-.ubuntu-25{
+
+
+.login-form-container{
+
+  background-color: #FADADD;
+}
+/*.ubuntu-25{
   font-size: 25px;
 }
 .ubuntu-15{
   font-size: 15px;
-}
+}*/
 .login-form-container form{
   display: flex;
   flex-direction: column;
@@ -49,12 +50,16 @@ Login
 }
 
 .login-form-container button{
-  background-color: red;
-  color: white;
+  background-color: #c9ffb6;
+  color: black;
   border-radius: 8px;
   width: 100%;
   height: 50px;
+  font-family: "Corinthia";
+  font-size: 30px;
+
 }
+
 .login-form-container .return-forgot{
   display: flex;
   justify-content: space-between;
@@ -67,10 +72,8 @@ Login
   width: 40%;
 }
 .return-forgot .btn-bg-return-colour{
-  background-color: green;
 }
 .return-forgot .btn-bg-forgot-colour{
-  background-color: blue;
 }
 
 /*
@@ -83,16 +86,18 @@ header{
   display: flex;
   justify-content: space-between;
   background-color: #c9ffb6;
-  padding: 15px 5px;
 }
 
 .logo-about-prod-container{
   display: flex;
   width: 30%;
   justify-content: inherit;
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
-.logo-about-prod-container p{
+.logo-about-prod-container img{
+  width: 160%;
   margin: 0;
 }
 
@@ -100,17 +105,26 @@ header{
   display: flex;
   width: 30%;
   justify-content: inherit;
+  padding-top: 20px;
+  padding-right: 20px;
 }
 
-.login-cart-container p{
+
+.logo-about-prod-container a, .login-cart-container a {
   margin: 0;
+  text-decoration: none;
+  color: black;
+
 }
 
 .corinthina-30{
   font-family: "Corinthia";
   font-size: 30px;
 }
-
+.corinthina-40{
+  font-family: "Corinthia";
+  font-size: 40px;
+}
 .corinthina-25{
   font-family: "Corinthia";
   font-size: 25px;
@@ -120,6 +134,7 @@ header{
   font-family: "Corinthia";
   font-size: 15px;
 }
+
 
 .promo-container, .about-container{
   display: flex;
@@ -302,4 +317,101 @@ Product list
 .name-price-cart .cart img{
   width: 40%;
 
+}
+/*
+---------------
+Shoping cart
+---------------
+*/
+.cart-container{
+  background-color: #FADADD;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.your-cart{
+  text-align: center;
+  font-weight: bold;
+}
+
+.products-in-cart{
+  display: flex;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 35px;
+
+
+}
+.prod{
+  padding-top: 30px;
+  border: 1px dashed #a9a9a9;
+}
+.prod img{
+  width: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.prod h3{
+  text-align: center;
+  margin: 0;
+}
+
+.prod p{
+  text-align: end;
+  margin: 0;
+  padding: 20px;
+}
+
+.plus, .minus{
+  width: 20%;
+  margin: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+}
+.numbers .plus img, .numbers .minus img{
+  width: 100%;
+}
+
+.numbers{
+  display: flex;
+  padding-left: 50px;
+}
+.num-of-products{
+  display: flex;
+  align-items: center;
+}
+
+.total{
+  display: flex;
+  text-align: center;
+}
+.total-txt{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.total-txt h2, .total-txt h6{
+  margin: 0;
+}
+.total .buy{
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.total .buy button{
+  font-family: "Corinthia";
+  font-size: 25px;
+  color: brown;
+  border-radius: 4px;
+  height: 50px;
+  background-color: #c9ffb6;
+  width: 50%;
 }
