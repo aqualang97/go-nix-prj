@@ -13,7 +13,8 @@ type Rectangle struct {
 	x2, y2 float64
 }
 type Circle struct {
-	x, y, r float64
+	Position
+	r float64
 }
 
 func distance(x1, y1, x2, y2 float64) float64 {
@@ -78,8 +79,10 @@ func main() {
 		y2: 10,
 	}
 	circle := &Circle{
-		x: 0,
-		y: 0,
+		Position: Position{
+			x: 0,
+			y: 0,
+		},
 		r: 5,
 	}
 
