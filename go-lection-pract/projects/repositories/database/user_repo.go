@@ -1,10 +1,12 @@
 package database
 
-import "my-uuid/repositories/models"
+import (
+	"my-uuid/repositories/models"
+)
 
-type UserDBRepository struct {
-}
+type UserDBRepository struct{}
 
-func (udbr UserDBRepository) GetByEmail(email string) (user models.User) {
-	panic("implemented me")
+func (udbr UserDBRepository) GetByEmail(email string) models.User {
+	// SELECT email, password_hash, created_at FROM users WHERE email = email
+	panic("implement me")
 }

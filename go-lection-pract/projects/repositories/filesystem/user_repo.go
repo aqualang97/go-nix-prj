@@ -10,24 +10,33 @@ import (
 type UserFileRepository struct {
 }
 
-func (ufr UserFileRepository) GetByEmail(_ string) (user models.User) {
-	data := []byte{}
+func (ufr UserFileRepository) GetByEmail(_ string) (user *models.User) {
+	var userData []byte
+
 	file, err := os.Open("./datastore/files/user_1.json")
 	if err != nil {
-		return models.User{}
+		panic(err)
+		return &models.User{}
 	}
 	defer file.Close()
+
 	for {
-		var chunk []byte
-		_, err := file.Read(chunk)
+		chunk := make([]byte, 64)
+		n, err := file.Read(chunk)
 		if err == io.EOF {
-			//
 			break
-			//
 		}
-		data = append(data, chunk...)
+		if err != nil {
+			panic(err)
+		}
+
+		userData = append(userData, chunk[:n]...)
 	}
 
-	json.Unmarshal(data, &user)
+	err = json.Unmarshal(userData, user)
+	if err != nil {
+		panic(err)
+	}
+
 	return user
 }
