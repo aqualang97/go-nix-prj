@@ -10,6 +10,9 @@ import (
 type UserFileRepository struct {
 }
 
+func (ufr UserFileRepository) Insert(user *models.User) error {
+	return nil
+}
 func (ufr UserFileRepository) GetByEmail(_ string) (user *models.User) {
 	var userData []byte
 
@@ -33,7 +36,7 @@ func (ufr UserFileRepository) GetByEmail(_ string) (user *models.User) {
 		userData = append(userData, chunk[:n]...)
 	}
 
-	err = json.Unmarshal(userData, user)
+	err = json.Unmarshal(userData, &user)
 	if err != nil {
 		panic(err)
 	}
