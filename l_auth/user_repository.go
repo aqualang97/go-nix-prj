@@ -39,11 +39,11 @@ func (r *UserRepository) GetUserByEmail(email string) (*User, error) {
 	}
 	return nil, errors.New("user not found")
 }
+
 func (r *UserRepository) GetUserByID(id int) (*User, error) {
 	for _, user := range r.users {
 		if user.ID == id {
 			return user, nil
-
 		}
 	}
 	return nil, errors.New("user not found")
