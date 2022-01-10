@@ -57,6 +57,19 @@ func ValidateToken(tokenString, secret string) (*JWTCustomClaims, error) {
 	if !ok || !token.Valid {
 		return nil, errors.New("failed to parse token claims")
 	}
-
 	return claims, nil
 }
+
+/*
+func ValidateTokenToRefresh(accessTokenString, secret string) error {
+	_, err := jwt.ParseWithClaims(accessTokenString, &JWTCustomClaims{},
+		func(token *jwt.Token) (interface{}, error,
+		) {
+			return []byte(secret), nil
+		})
+	if err != nil {
+		return err
+	}
+	return nil
+}
+*/

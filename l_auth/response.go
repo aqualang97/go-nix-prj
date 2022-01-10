@@ -5,6 +5,11 @@ type LoginResponse struct {
 	RefreshToken string `json:"refresh_token"`
 }
 
+type RefreshResponse struct {
+	NewAccessToken  string `json:"access_token"`
+	NewRefreshToken string `json:"refresh_token"`
+}
+
 type UserResponse struct {
 	ID    int
 	Email string

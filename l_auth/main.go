@@ -21,6 +21,7 @@ func main() {
 	http.HandleFunc("/login", Login)     //умеем обрабатывать логин с помощью ф-ции логин
 	http.HandleFunc("/profile", Profile) //умеем обрабатывать логин с помощью ф-ции логин
 	http.HandleFunc("/refresh", Refresh)
+	http.HandleFunc("/registration", Registration)
 
 	log.Fatal(http.ListenAndServe(":8080", nil)) //слушаем порт 8080 для входящих запросов
 }
@@ -28,7 +29,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "POST":
 		req := new(LoginRequest)
-		if err := json.NewDecoder(r.Body).Decode(&req); err != nil { //берем тенло запроса декодим и декодим в тело запроса
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil { //берем тело запроса декодим и декодим в тело запроса
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
@@ -98,13 +99,97 @@ func Profile(w http.ResponseWriter, r *http.Request) {
 func Refresh(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "POST":
-		resp := LoginResponse{
-			//AccessToken:  tokenString,
-			//RefreshToken: refreshString,p
+
+		req := new(RefreshRequest)
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+		//println(req.Token)
+		//tokenString := GetTokenFromBearerString(r.Header.Get("Authorization"))
+
+		//access возможно не нужно проверять?
+		//смысл их проверять, если они не предназначены для рефреша,
+		//а через AccessTokenLifetimeMinutes они станут невалидными
+		/*
+			accessTokenString := req.AccessToken
+			claims, err := ValidateToken(accessTokenString, AccessSecret)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusUnauthorized)
+				return
+			}
+
+			user, err := NewUserRepository().GetUserByID(claims.ID)
+			if err != nil {
+				http.Error(w, "invalid token", http.StatusUnauthorized)
+				return
+			}
+		*/
+		refreshTokenString := req.RefreshToken
+		claims, err := ValidateToken(refreshTokenString, RefreshSecret)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusUnauthorized)
+			return
+		}
+
+		user, err := NewUserRepository().GetUserByID(claims.ID)
+		if err != nil {
+			http.Error(w, "invalid token", http.StatusUnauthorized)
+			return
+		}
+
+		/*
+			err := ValidateTokenToRefresh(accessTokenString, AccessSecret)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusUnauthorized)
+				return
+			}
+			refreshTokenString := req.AccessToken
+			err = ValidateTokenToRefresh(refreshTokenString, RefreshSecret)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusUnauthorized)
+				return
+			}*/
+
+		newAccessTokenString, err := GenerateToken(user.ID, AccessTokenLifetimeMinutes, AccessSecret)
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		newRefreshTokenString, err := GenerateToken(user.ID, RefreshTokenLifetimeMinutes, RefreshSecret)
+
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		resp := RefreshResponse{
+			NewAccessToken:  newAccessTokenString,
+			NewRefreshToken: newRefreshTokenString,
 		}
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(resp)
 	default:
-		http.Error(w, "Only GET method is allowed", http.StatusMethodNotAllowed)
+		http.Error(w, "Only POST method is allowed", http.StatusMethodNotAllowed)
+	}
+}
+func Registration(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "POST":
+
+		req := new(RegistrationRequest)
+
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+
+		/*user, err := NewUserRepository().GetUserByEmail(req.Email)
+		if err != nil {
+			http.Error(w, "invalid credentials", http.StatusUnauthorized)
+			return
+		}*/
+	default:
+		http.Error(w, "Only POST method is allowed", http.StatusMethodNotAllowed)
 	}
 }
