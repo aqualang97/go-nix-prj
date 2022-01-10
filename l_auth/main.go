@@ -99,8 +99,8 @@ func Refresh(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "POST":
 		resp := LoginResponse{
-			AccessToken:  tokenString,
-			RefreshToken: refreshString,
+			//AccessToken:  tokenString,
+			//RefreshToken: refreshString,p
 		}
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(resp)
